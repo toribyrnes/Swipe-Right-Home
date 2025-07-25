@@ -1,75 +1,66 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
+import SwipeDeck from '@/components/SwipeDeck';
+
+// Sample data - replace with your real data
+const sampleListings = [
+  {
+    id: '1',
+    title: 'Beautiful Downtown Condo',
+    description: 'Modern 2BR/2BA condo in the heart of downtown with amazing city views.',
+    price: 450000,
+  },
+  {
+    id: '2',
+    title: 'Cozy Suburban Home',
+    description: 'Charming 3BR/2BA house with a large backyard and garage.',
+    price: 320000,
+  },
+  {
+    id: '3',
+    title: 'Luxury Waterfront Villa',
+    description: 'Stunning 4BR/3BA villa with private beach access and pool.',
+    price: 850000,
+  },
+  {
+    id: '4',
+    title: 'Urban Loft Apartment',
+    description: 'Industrial-style loft with exposed brick and high ceilings.',
+    price: 380000,
+  },
+  {
+    id: '5',
+    title: 'Mountain Cabin Retreat',
+    description: 'Rustic 2BR cabin surrounded by nature, perfect for getaways.',
+    price: 275000,
+  },
+];
 
 export default function HomeScreen() {
+  const handleLike = (listing: any) => {
+    console.log('Liked:', listing.title);
+    // Handle like action here (save to favorites, etc.)
+  };
+
+  const handleDislike = (listing: any) => {
+    console.log('Disliked:', listing.title);
+    // Handle dislike action here
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ThemedView style={styles.container}>
+      <SwipeDeck 
+        listings={sampleListings}
+        onLike={handleLike}
+        onDislike={handleDislike}
+      />
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  container: {
+    flex: 1,
   },
 });
