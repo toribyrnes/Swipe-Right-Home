@@ -6,6 +6,7 @@ import Animated, {
   withRepeat,
   withSequence,
   withTiming,
+  cancelAnimation,
 } from 'react-native-reanimated';
 
 import { ThemedText } from '@/components/ThemedText';
@@ -18,6 +19,11 @@ export function HelloWave() {
       withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
       4 // Run the animation 4 times
     );
+
+    // Cleanup function to cancel animation when component unmounts
+    return () => {
+      cancelAnimation(rotationAnimation);
+    };
   }, [rotationAnimation]);
 
   const animatedStyle = useAnimatedStyle(() => ({
