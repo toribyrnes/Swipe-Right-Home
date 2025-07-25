@@ -1,51 +1,96 @@
-# Welcome to your Expo app 👋
+# SwipeRightHome - Real Estate Swipe App 🏠
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A Tinder-style home browsing app built with React Native, Expo, and Redux Toolkit. Swipe right to like homes, swipe left to pass, and view your liked properties in a dedicated tab.
 
-## Get started
+## Features
 
-1. Install dependencies
+- 🏠 **Swipe Interface**: Tinder-style card swiping for browsing homes
+- ❤️ **Like/Pass System**: Swipe right to like, left to pass, or use action buttons
+- 📱 **Gesture Support**: Smooth pan gestures with visual feedback and animations
+- 🔄 **Redux State Management**: Centralized state for likes, passes, and current listings
+- 📋 **Liked Homes View**: See all your liked properties in a grid layout
+- 🎨 **Modern UI**: Clean, responsive design with smooth animations
+- 📊 **Statistics**: Track likes and passes with visual feedback
 
+## Tech Stack
+
+- **React Native** with Expo
+- **Redux Toolkit** for state management
+- **React Native Reanimated** for smooth animations
+- **React Native Gesture Handler** for swipe gestures
+- **Expo Router** for navigation
+- **TypeScript** for type safety
+
+## Getting Started
+
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. Start the development server:
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+3. Open the app in:
+   - [Expo Go](https://expo.dev/go) on your mobile device
+   - iOS Simulator
+   - Android Emulator
+   - Web browser
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+├── app/
+│   ├── (tabs)/
+│   │   ├── index.tsx        # Swipe screen (main)
+│   │   ├── explore.tsx      # Liked homes screen
+│   │   └── _layout.tsx      # Tab navigation
+│   └── _layout.tsx          # Root layout with Redux Provider
+├── components/
+│   ├── SwipeDeck.tsx        # Main swipe component
+│   └── LikedHomes.tsx       # Liked homes grid
+└── store/
+    ├── index.ts             # Redux store configuration
+    ├── swipeSlice.ts        # Home listings and swipe logic
+    └── hooks.ts             # Typed Redux hooks
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## How to Use
 
-## Learn more
+### Swipe Tab
+- Swipe right or tap ❤️ to like a home
+- Swipe left or tap ✕ to pass on a home
+- Cards show home details: price, location, bed/bath count, square footage
+- Visual feedback shows "LIKE" or "PASS" while swiping
+- Reset deck option when all homes are viewed
 
-To learn more about developing your project with Expo, look at the following resources:
+### Liked Tab
+- View all homes you&apos;ve liked in a grid layout
+- See statistics of likes vs passes
+- Tap on any home card for more details
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Customization
 
-## Join the community
+The app comes with sample home listings. To add your own data:
 
-Join our community of developers creating universal apps.
+1. Edit `store/swipeSlice.ts`
+2. Update the `initialState.listings` array with your home data
+3. Each listing should include: id, title, price, location, bedrooms, bathrooms, sqft, imageUrl, description
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run `npm run lint` to check code quality
+5. Submit a pull request
+
+## Learn More
+
+- [Expo Documentation](https://docs.expo.dev/)
+- [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/)
 # Swipe-Right-Home
