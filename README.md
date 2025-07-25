@@ -1,51 +1,140 @@
-# Welcome to your Expo app 👋
+# SwipeRight Home 🏠❤️
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A Tinder-like mobile app for discovering and saving real estate listings with an intuitive swipe interface.
 
-## Get started
+## ✨ Features
 
-1. Install dependencies
+### 🎮 Swipe Interface
+- **Tinder-style Cards**: Swipe left to pass, right to save properties
+- **Smooth Animations**: Spring-based animations powered by `react-native-reanimated`
+- **Visual Feedback**: Color-coded borders and overlays show your swipe direction
+- **Haptic Feedback**: Subtle vibrations on iOS for successful saves and rejections
 
+### 📊 Match System
+- **Match Meter™**: Each property shows a percentage match based on your preferences
+- **Smart Matching**: Visual progress bar indicates compatibility
+
+### 🎯 Gamification Features
+- **Heart Animation**: Glowing heart effect when you save a property you love
+- **Shake Animation**: Subtle rejection feedback for passed properties
+- **Feedback Collection**: Optional tags after each swipe to learn your preferences
+- **Progress Tracking**: See how many homes you've saved
+
+### 💾 State Management
+- **Redux Store**: Persistent state management for saved listings and feedback
+- **Real-time Updates**: Saved properties instantly appear in your collection
+- **Analytics Ready**: Swipe feedback collected for future ML improvements
+
+## 🏗️ Architecture
+
+### Components
+- **SwipeDeck**: Main swipe interface with gesture handling
+- **SwipeCard**: Individual property card with all listing details
+- **FeedbackPanel**: Slide-up panel for collecting user sentiment
+- **SavedScreen**: List view of all saved properties
+
+### State Management
+- **savedListingsSlice**: Manages liked/saved properties
+- **swipeFeedbackSlice**: Collects user preference data
+- **TypeScript**: Fully typed for better developer experience
+
+### Data
+- **Mock Listings**: 6 sample properties with real images from Unsplash
+- **Rich Property Data**: Price, beds, baths, sqft, address, tags, and match %
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v16 or later)
+- Expo CLI: `npm install -g @expo/cli`
+- iOS Simulator or Android emulator, or Expo Go app on your phone
+
+### Installation
+
+1. **Clone and install dependencies**:
    ```bash
+   cd swiperighthome
    npm install
    ```
 
-2. Start the app
-
+2. **Start the development server**:
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Run on your device**:
+   - **iOS**: Press `i` or scan QR code with Camera app
+   - **Android**: Press `a` or scan QR code with Expo Go app
+   - **Web**: Press `w` to open in browser
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📱 How to Use
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Swipe Tab
+1. **Swipe Gestures**: 
+   - Swipe right or tap ❤️ to save a property
+   - Swipe left or tap ❌ to pass
+2. **View Details**: Each card shows price, specs, location, and match percentage
+3. **Provide Feedback**: After each swipe, optionally select tags to help us learn your preferences
+4. **Manual Controls**: Use the action buttons at the bottom if you prefer tapping
 
-## Get a fresh project
+### Saved Tab
+1. **View Collection**: See all your saved properties in a list
+2. **Remove Properties**: Tap the ❌ on any card to remove it
+3. **Clear All**: Reset your entire collection with the "Clear All" button
 
-When you're ready, run:
+### Empty State
+- When you've reviewed all listings, tap "Swipe Again" to restart the deck
 
-```bash
-npm run reset-project
-```
+## 🛠️ Technical Details
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Dependencies
+- **Expo SDK 53**: Latest stable version
+- **React Native Reanimated 3**: Smooth 60fps animations
+- **React Native Gesture Handler**: Touch gesture recognition
+- **Redux Toolkit**: Modern Redux with less boilerplate
+- **Expo Haptics**: Native haptic feedback
+- **Expo Blur**: Native blur effects for the feedback panel
 
-## Learn more
+### Performance
+- **Optimized Animations**: All animations run on the UI thread
+- **Efficient Rendering**: Only visible cards are fully rendered
+- **Memory Management**: Images are cached and optimized by Expo Image
 
-To learn more about developing your project with Expo, look at the following resources:
+### Platform Support
+- ✅ **iOS**: Full feature support including haptics
+- ✅ **Android**: Full feature support 
+- ✅ **Web**: Works but some native features limited
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🎨 Design System
 
-## Join the community
+### Colors
+- **Like**: #4dd865 (Green)
+- **Reject**: #ff4458 (Red)
+- **Primary**: #007AFF (Blue)
+- **Adaptive**: Supports light and dark themes
 
-Join our community of developers creating universal apps.
+### Typography
+- **System Fonts**: Native font stacks for each platform
+- **Hierarchy**: Clear visual hierarchy with appropriate font weights
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-# Swipe-Right-Home
+### Spacing
+- **Mobile-First**: Optimized for mobile screen sizes
+- **Safe Areas**: Respects device safe areas and notches
+
+## 🔮 Future Enhancements
+
+- **Real Estate API Integration**: Connect to MLS or Zillow APIs
+- **Advanced Filtering**: Price range, location, property type filters
+- **Machine Learning**: Use feedback data to improve match percentages
+- **Social Features**: Share saved homes with friends/family
+- **Map Integration**: See properties on an interactive map
+- **Push Notifications**: Alert users to new listings that match their preferences
+- **Favorite Neighborhoods**: Save and track preferred areas
+
+## 📄 License
+
+This project is for demonstration purposes. Property images are from Unsplash under their license.
+
+---
+
+**Ready to find your dream home? Start swiping! 🏠💕**
